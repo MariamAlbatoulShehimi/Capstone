@@ -3,19 +3,26 @@ using Capstone.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Capstone.Models.ViewModels;
+using Capstone.Utility;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
+using Capstone.DataAccess.Data;
 
 
 namespace CapstoneProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //[Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public ProductController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment)
+        private readonly ApplicationDbContext _context;
+        public ProductController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment,ApplicationDbContext context)
         {
             _unitOfWork = unitOfWork;
             _webHostEnvironment = webHostEnvironment;
+            _context = context;
         }
         public IActionResult Index()
         {
@@ -103,6 +110,7 @@ namespace CapstoneProject.Areas.Admin.Controllers
 
         }
 
+        
 
         #region API CALLS
 
