@@ -15,9 +15,6 @@ namespace Capstone.DataAccess.Data
         // Define the DbSets
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Company> Companies { get; set; }
-        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         // Configure the model with seed data
         protected override void OnModelCreating(ModelBuilder modelBuilder)

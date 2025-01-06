@@ -4,6 +4,7 @@ using Capstone.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Capstone.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250104213830_test10")]
+    partial class test10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,23 +74,11 @@ namespace Capstone.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PostalCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("State")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StreetAddress")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -261,7 +252,7 @@ namespace Capstone.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            AddedDate = new DateTime(2025, 1, 4, 23, 47, 29, 126, DateTimeKind.Local).AddTicks(5324),
+                            AddedDate = new DateTime(2025, 1, 4, 23, 38, 29, 159, DateTimeKind.Local).AddTicks(7056),
                             CategoryId = 1,
                             Condition = "New",
                             Description = "Warm and soft blanket for cold weather.",
